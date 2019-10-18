@@ -1,0 +1,10 @@
+version: "3"
+services:
+  pokemon:
+    build: ./
+    volumes:
+      - ${PATH_TO_APP}:/app
+    working_dir: /app
+    ports:
+      - 3000:3000
+    command: node server.js
