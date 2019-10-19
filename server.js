@@ -1,17 +1,13 @@
 const express = require('express');
 
 const routes = require('./routes/pokemons');
-
-
+const logger = require('./logs/logger');
 
 const app = express();
 
-/* app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Method", "GET")
-}); */
-
+//call for pokemon routes
 app.use("/api/v1", routes);
 
-// default PORT
-app.listen(process.env.PORT || 3000);
+//starting server
+app.listen(process.env.PORT_NUMBER || 3000);
+logger.info('Server started at port: ' + (process.env.PORT_NUMBER || 3000));

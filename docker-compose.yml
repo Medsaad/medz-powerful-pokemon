@@ -6,5 +6,5 @@ services:
       - ${PATH_TO_APP}:/app
     working_dir: /app
     ports:
-      - 3000:3000
+      - ${PORT_NUMBER}:3000
     command: node server.js
