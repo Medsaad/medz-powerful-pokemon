@@ -40,7 +40,6 @@ class Pokemon{
             let options = {
                 uri: url,
                 method: 'GET',
-                family: 4,
                 json: true
             };
             logger.info("fetching data for pokemon: "+ this.name + " | url: " + url);

@@ -7,7 +7,7 @@ const logger = require('../logs/logger');
 const router = express.Router();
 
 router.get('/powerful/find', function(req, res, next) {
-    logger.info('Initiated request: /powerful/find with query params: ' + req.query);
+    logger.info('Initiated request: /powerful/find with query params: ' + JSON.stringify(req.query));
     let pokemons = req.query.pokemons; //comma separated pokemons
 
     //in case no pokemon was set, return an error
@@ -32,6 +32,10 @@ router.get('/powerful/find', function(req, res, next) {
     */
     let pokemons_meta = [];
     async.eachSeries(pokemons_list,  (pokemon, next) => {
+        //handling extra commas
+        if(pokemon === '') 
+            next();
+
         logger.info("Creating object for pokemon "+ pokemon);
         let p = new Pokemon(pokemon);
         p.loadPokemon().then((item) => {
