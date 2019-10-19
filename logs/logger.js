@@ -10,7 +10,7 @@ var logger = new winston.Logger({
 	transports: [
 		new winston.transports.Console(),
 		new winston.transports.File({
-			filename: "logs/pokemon-" + yyyy + "-" + mm + "-" + dd + "-" + ".log"
+			filename: "logs/pokemon-" + yyyy + "-" + mm + "-" + dd + ".log"
 		})
 	]
 });
